@@ -1,0 +1,27 @@
+<div class="container-fluid container-md">
+    <div class="row">
+        <div class="col">
+            <h1><?= htmlspecialchars($editovanyUzivatel['jmeno']) ?></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                <div class="mb-2">
+                    <label for="vstupHeslo" class="form-label">Zadejte nové heslo</label>
+                    <input type="password" class="form-control" id="vstupHeslo" name="heslo" placeholder="Zadejte nové heslo">
+                </div>
+                <div class="mb-2">
+                    <label for="vstupHesloZnovu" class="form-label">Zadejte heslo znovu</label>
+                    <input type="password" class="form-control" name="hesloZnovu" id="vstupHesloZnovu" placeholder="Zadejte heslo znovu">
+                </div>
+
+                <div class="mb-2">
+                    <label for="vstupAdmin" class="form-label">Admin</label>
+                    <input type="text" class="form-control" name="admin" id="vstupHesloZnovu" placeholder="Ano/Ne">
+                </div>
+                <button type="submit" class="btn btn-primary">Uložit</button>
+            </form>
+        </div>
+    </div>
+</div>

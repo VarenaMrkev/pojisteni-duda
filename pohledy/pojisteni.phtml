@@ -1,0 +1,58 @@
+<div class="container-fluid container-md">
+  <div class="row">
+    <div class="col text-center">
+        <h1>Výběr pojištění</h1>
+    </div>
+    </div>
+    <div class="row my-4">
+        <div class="col text-center ">
+            <table class="table table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Typ pojištění</th>
+                        <th scope="col">Pojistné</th>
+                        <th scope="col">Pojištěnec</th>
+                        <th scope="col">Platnost od</th>
+                        <th scope="col">Platnost do </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>                
+                    <?php foreach ($pojisteni as $jednoPojisteni) : ?>
+                        <?php if ($prihlasenyUzivatel['admin'] === 1) : ?>
+                        <tr>
+                            <td><a href="editace-pojisteni/<?= htmlspecialchars($jednoPojisteni['klient_id'])."/".htmlspecialchars($jednoPojisteni['pojisteni_id'])?>">
+                                <?= htmlspecialchars($jednoPojisteni['typ']) ?></a></td>
+                            <td><?= htmlspecialchars($jednoPojisteni['pojistne']) ?></td>
+                            <td><a href="detail-pojistence/<?= htmlspecialchars($jednoPojisteni['klient_id']) ?>">
+                                <?= htmlspecialchars($jednoPojisteni['jmeno']) ?></a></td>
+                            <td><?= htmlspecialchars($jednoPojisteni['vznik']) ?></td>
+                            <td><?= htmlspecialchars($jednoPojisteni['platnost']) ?></td>
+                            <td><a href="pojisteni/odstran/<?= htmlspecialchars($jednoPojisteni['pojisteni_id']) ?>" class="btn btn-outline-danger mx-2" >Odstranit</a>
+                        </tr>
+                        <?php elseif ($jednoPojisteni['uzivatel_id'] == $prihlasenyUzivatel['uzivatel_id']) : ?>
+                            <tr>
+                                <td><a href="editace-pojisteni/<?= htmlspecialchars($jednoPojisteni['klient_id'])."/".htmlspecialchars($jednoPojisteni['pojisteni_id'])?>">
+                                    <?= htmlspecialchars($jednoPojisteni['typ']) ?></a></td>
+                                <td><?= htmlspecialchars($jednoPojisteni['pojistne']) ?></td>
+                                <td><a href="detail-pojistence/<?= htmlspecialchars($jednoPojisteni['klient_id']) ?>">
+                                    <?= htmlspecialchars($jednoPojisteni['jmeno']) ?></a></td>
+                                <td><?= htmlspecialchars($jednoPojisteni['vznik']) ?></td>
+                                <td><?= htmlspecialchars($jednoPojisteni['platnost']) ?></td>
+                                <td><a href="pojisteni/odstran/<?= htmlspecialchars($jednoPojisteni['pojisteni_id']) ?>" class="btn btn-outline-danger mx-2" >Odstranit</a>
+                            </tr>
+                        <?php endif; ?>    
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <?= $strankovani[0]->paginace('pojisteni', $strankovani[1], $strankovani[2], '?strana={strana}') ?>
+        </div>
+    </div>
+</div>
+
+
+

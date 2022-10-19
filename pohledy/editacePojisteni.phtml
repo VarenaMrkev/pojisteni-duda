@@ -1,0 +1,79 @@
+<div class="container-fluid container-md">
+  <div class="row">
+    <div class="col mt-4">
+        <h1>Přidat pojištění k <?= $pojistenec['jmeno'].' '.$pojistenec['prijmeni']?></h1>
+    </div>
+  </div>
+  <div class="row my-4">
+    <div class="col ">
+        <form method="post">
+        <input type="hidden" name="pojisteni_id" value="<?= $pojisteni['pojisteni_id'] ?>" />
+            <div class="row my-1">
+                <div class=" form-group col-8">
+                    <label for="vstupTyp">Vyberte typ pojištění</label>
+                    <?php if($pojisteni['typ'] == 'Pojištění domácnosti') : ?>
+                        <select class="form-select" id="vstupTyp" name="typ">
+                            <option selected value="Pojištění domácnosti">Pojištění domácnosti</option>
+                            <option value="Pojištění automobilu">Pojištění automobilu</option>
+                            <option value="Životní pojištění">Životní pojištění</option>
+                            <option value="Pojištění odpovědnosti za škodu">Pojištění odpovědnosti za škodu</option>
+                        </select>
+                    <?php elseif($pojisteni['typ'] == 'Pojištění automobilu') : ?>
+                        <select class="form-select" id="vstupTyp" name="typ">
+                            <option value="Pojištění domácnosti">Pojištění domácnosti</option>
+                            <option selected value="Pojištění automobilu">Pojištění automobilu</option>
+                            <option value="Životní pojištění">Životní pojištění</option>
+                            <option value="Pojištění odpovědnosti za škodu">Pojištění odpovědnosti za škodu</option>
+                        </select>
+                    <?php elseif($pojisteni['typ'] == 'Životní pojištění') : ?>
+                        <select class="form-select" id="vstupTyp" name="typ">
+                            <option value="Pojištění domácnosti">Pojištění domácnosti</option>
+                            <option value="Pojištění automobilu">Pojištění automobilu</option>
+                            <option selected value="Životní pojištění">Životní pojištění</option>
+                            <option value="Pojištění odpovědnosti za škodu">Pojištění odpovědnosti za škodu</option>
+                        </select>
+                    <?php elseif($pojisteni['typ'] == 'Pojištění odpovědnosti za škodu') : ?>
+                        <select class="form-select" id="vstupTyp" name="typ">
+                            <option value="Pojištění domácnosti">Pojištění domácnosti</option>
+                            <option value="Pojištění automobilu">Pojištění automobilu</option>
+                            <option selected value="Životní pojištění">Životní pojištění</option>
+                            <option value="Pojištění odpovědnosti za škodu">Pojištění odpovědnosti za škodu</option>
+                        </select>
+                    <?php else : ?>
+                        <select class="form-select" id="vstupTyp" name="typ">
+                            <option selected>Vyberte type pojištění</option>
+                            <option value="Pojištění domácnosti">Pojištění domácnosti</option>
+                            <option value="Pojištění automobilu">Pojištění automobilu</option>
+                            <option value="Životní pojištění">Životní pojištění</option>
+                            <option value="Pojištění odpovědnosti za škodu">Pojištění odpovědnosti za škodu</option>
+                        </select>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <div class="row my-1">
+                <div class="form-group col-md-4">
+                <label for="vstupPojistne">Pojistné</label>
+                <input type="text" name="pojistne" class="form-control" id="vstupPojistne" value="<?= $pojisteni['pojistne'] ?>"placeholder="Pojistné">
+                </div>
+            </div>
+
+            <div class="row my-1">
+                <div class="form-group col-md-4">
+                <label for="vstupPlatnostOd">Platnost od</label>
+                <input type="date" name="vznik" class="form-control" id="vstupPlatnostOd" value="<?= $pojisteni['vznik'] ?>" >
+                </div>
+                <div class="form-group col-md-4">
+                <label for="vstupPlatnostDo">Platnost do</label>
+                <input type="date" name="platnost" class="form-control" id="vstupPlatnostDo" value="<?= $pojisteni['platnost'] ?>" >
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary my-2">Uložit</button>
+        </form>
+    </div>
+  </div>
+</div>
+
+
+

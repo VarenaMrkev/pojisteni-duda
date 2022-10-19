@@ -1,0 +1,58 @@
+<div class="container-fluid container-md">
+  <div class="row">
+    <div class="col mt-4">
+        <h1>Přidat pojištěnce</h1>
+    </div>
+  </div>
+  <div class="row my-4">
+    <div class="col ">
+        <form method="post">
+        <input type="hidden" name="klient_id" value="<?= $pojistenec['klient_id'] ?>" />
+            <div class="row my-1">
+                <div class="form-group col-md-4">
+                <label for="vstupJmeno">Jméno</label>
+                <input type="text" name="jmeno" class="form-control" id="vstupJmeno" value="<?= $pojistenec['jmeno'] ?>"placeholder="Jméno">
+                </div>
+                <div class="form-group col-md-4">
+                <label for="vstupPrijmeni">Příjmení</label>
+                <input type="text" name="prijmeni" class="form-control" id="vstupPrijemni" value="<?= $pojistenec['prijmeni'] ?>" placeholder="Příjmení">
+                </div>
+            </div>
+
+            <div class="row my-1">
+                <div class="form-group col-md-4">
+                <label for="vstupTelefon">Telefon</label>
+                <input type="text" name="telefon" class="form-control" id="vstupTelefon" value="<?= $pojistenec['telefon'] ?>"placeholder="Telefon">
+                </div>
+                <div class="form-group col-md-4">
+                <label for="vstupEmail">Email</label>
+                <input type="text" name="email" class="form-control" id="vstupEmail" value="<?= $pojistenec['email'] ?>" placeholder="Email">
+                </div>
+            </div>
+
+            <div class="row my-1">
+                <div class="form-group col-md-4">
+                <label for="vstupUlice">Ulice</label>
+                <input type="text" name="ulice" class="form-control" id="vstupUlice" value="<?= $adresa['ulice'] ?>" placeholder="Ulice">
+                </div>
+                <div class="form-group col-md-4">
+                <label for="vstupCP">Číslo popisné</label>
+                <input type="text" name="cislo_popisne" class="form-control" id="vstupCP" value="<?= $adresa['cislo_popisne'] ?>" placeholder="Číslo popisné">
+                </div>
+            </div>
+
+            <div class="row my-1">
+                <div class="form-group col-md-4">
+                <label for="vstupMesto">Město</label>
+                <input type="text" name="mesto" class="form-control" id="vstupMesto" value="<?= $adresa['mesto'] ?>" placeholder="Město">
+                </div>
+                <div class="form-group col-md-4">
+                <label for="vstupPSC">PSČ</label>
+                <input type="text" name="PSC" class="form-control" id="vstupPSC" value="<?= $adresa['PSC'] ?>"placeholder="PSČ">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary my-2">Uložit</button>
+        </form>
+    </div>
+  </div>
+</div>
